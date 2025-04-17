@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      bash: latest
+
+  build:
+    commands:
+      - echo "Searching for the word 'hello' in shell scripts..."
+      - if grep -i "hello" *.sh; then
+          echo "✅ Found 'hello' in one or more .sh files.";
+        else
+          echo "❌ No 'hello' found in any .sh file.";
+          exit 1;
+        fi
